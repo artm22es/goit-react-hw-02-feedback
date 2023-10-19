@@ -1,22 +1,19 @@
-export const Statistics = ({ feedback, total, positive }) => {
-  return total > 0 ? (
-    <ul>
-      {feedback.map(([key, value]) => (
-        <li key={key}>
-          <span>{key}: </span>
-          <span>{value}</span>
-        </li>
-      ))}
-      <li key={total}>
-        <span>total: </span>
-        <span>{total}</span>
-      </li>
-      <li key={positive}>
-        <span>positive feedback: </span>
-        <span>{positive}</span>
-      </li>
-    </ul>
-  ) : (
-    <p>No feedback given</p>
+import { StatisticThumb } from './Statistics.styled';
+
+export const Statistics = ({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}) => {
+  return (
+    <StatisticThumb>
+      <li>Good: {good}</li>
+      <li>Neutral: {neutral}</li>
+      <li>Bad: {bad}</li>
+      <li>Total: {total}</li>
+      <li>Positive feedback: {positivePercentage}%</li>
+    </StatisticThumb>
   );
 };
